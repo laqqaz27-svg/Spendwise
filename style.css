@@ -43,3 +43,68 @@ input {
 h2 {
     color: #34495e;
 }
+
+.expense-form-section input:focus,
+.expense-form-section select:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.btn-add {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #1e40af;
+}
+
+.expenses-section,
+.multimedia-section {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.expense-table {
+    border-collapse: collapse; 
+    width: 100%;
+    margin-top: 10px;
+}
+
+.expense-table th,
+.expense-table td {
+    border: 1px solid #e2e8f0;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.expense-table th {
+    background-color: #0f172a;
+    color: white;
+}
+
+.expense-table tbody tr:nth-child(even) {
+    background-color: #f1f5f9;
+}
+
+.expense-table tbody tr:hover {
+    background-color: #e2e8f0;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 30px;
+}
