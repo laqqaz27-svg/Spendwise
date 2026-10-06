@@ -6,6 +6,7 @@
 
     <title>SpendWise Dashboard</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -14,6 +15,7 @@
         rel="stylesheet"
     >
 
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -39,6 +41,7 @@
 
         </aside>
 
+
         <!-- Main Content -->
         <main class="main-content">
 
@@ -57,10 +60,124 @@
 
             </header>
 
+
+            <!-- Budget Summary -->
+            <section class="budget-summary">
+
+                <div class="summary-card">
+                    <p>Monthly Budget</p>
+                    <strong id="budgetDisplay">$0</strong>
+                </div>
+
+                <div class="summary-card">
+                    <p>Total Expenses</p>
+                    <strong id="expensesDisplay">$0</strong>
+                </div>
+
+                <div class="summary-card">
+                    <p>Remaining Balance</p>
+                    <strong id="balanceDisplay">$0</strong>
+                </div>
+
+            </section>
+
+
+            <!-- Add Expense -->
+            <section class="expense-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="section-label">Manage Money</p>
+                        <h2>Add an Expense</h2>
+                    </div>
+
+                    <p class="section-description">
+                        Record your spending and keep track of your budget.
+                    </p>
+
+                </div>
+
+
+                <form id="expenseForm" class="expense-form">
+
+                    <div class="form-group">
+
+                        <label for="expenseName">
+                            Expense Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="expenseName"
+                            placeholder="e.g. Lunch"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="expenseAmount">
+                            Amount
+                        </label>
+
+                        <input
+                            type="number"
+                            id="expenseAmount"
+                            placeholder="e.g. 500"
+                            min="0"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button type="submit" id="addExpenseButton">
+                        Add Expense
+                    </button>
+
+                </form>
+
+
+                <!-- Budget Message -->
+                <p id="budgetMessage" class="budget-message">
+                    Add an expense to see your budget status.
+                </p>
+
+            </section>
+
+
+            <!-- Expense List -->
+            <section class="expense-list-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="section-label">Your Records</p>
+                        <h2>Recent Expenses</h2>
+                    </div>
+
+                </div>
+
+
+                <div id="expenseList" class="expense-list">
+
+                    <p id="emptyMessage">
+                        No expenses added yet.
+                    </p>
+
+                </div>
+
+            </section>
+
+
             <!-- Category Cards -->
             <section class="category-section">
 
                 <div class="section-heading">
+
                     <div>
                         <p class="section-label">Spending Overview</p>
                         <h2>Expense Categories</h2>
@@ -69,12 +186,15 @@
                     <p class="section-description">
                         Track your spending across different categories.
                     </p>
+
                 </div>
+
 
                 <div class="category-grid">
 
                     <!-- Food -->
                     <article class="category-card" tabindex="0">
+
                         <div class="card-top">
                             <span class="category-icon">🍎</span>
                             <span class="category-status">Active</span>
@@ -89,10 +209,13 @@
                             <strong>$250</strong>
                             <span>Monthly spending</span>
                         </div>
+
                     </article>
+
 
                     <!-- Transport -->
                     <article class="category-card" tabindex="0">
+
                         <div class="card-top">
                             <span class="category-icon">🚌</span>
                             <span class="category-status">Active</span>
@@ -107,10 +230,13 @@
                             <strong>$120</strong>
                             <span>Monthly spending</span>
                         </div>
+
                     </article>
+
 
                     <!-- Rent -->
                     <article class="category-card" tabindex="0">
+
                         <div class="card-top">
                             <span class="category-icon">🏠</span>
                             <span class="category-status">Fixed</span>
@@ -125,10 +251,13 @@
                             <strong>$800</strong>
                             <span>Monthly spending</span>
                         </div>
+
                     </article>
+
 
                     <!-- Entertainment -->
                     <article class="category-card" tabindex="0">
+
                         <div class="card-top">
                             <span class="category-icon">🎬</span>
                             <span class="category-status">Active</span>
@@ -143,10 +272,13 @@
                             <strong>$90</strong>
                             <span>Monthly spending</span>
                         </div>
+
                     </article>
+
 
                     <!-- Savings -->
                     <article class="category-card" tabindex="0">
+
                         <div class="card-top">
                             <span class="category-icon">💰</span>
                             <span class="category-status">Goal</span>
@@ -161,10 +293,13 @@
                             <strong>$300</strong>
                             <span>Monthly savings</span>
                         </div>
+
                     </article>
+
 
                     <!-- Utilities -->
                     <article class="category-card" tabindex="0">
+
                         <div class="card-top">
                             <span class="category-icon">💡</span>
                             <span class="category-status">Fixed</span>
@@ -179,6 +314,7 @@
                             <strong>$100</strong>
                             <span>Monthly spending</span>
                         </div>
+
                     </article>
 
                 </div>
@@ -188,6 +324,10 @@
         </main>
 
     </div>
-<script src="script.js"></script>t
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
 </body>
 </html>
