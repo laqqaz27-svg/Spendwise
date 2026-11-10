@@ -1,5 +1,7 @@
+
 // ==========================================
 // SpendWise - Interactive Budget Dashboard
+// Currency: Kenyan Shilling (KES)
 // ==========================================
 
 
@@ -33,7 +35,20 @@ const expenseList = document.getElementById("expenseList");
 const emptyMessage = document.getElementById("emptyMessage");
 
 
-// 3. CALCULATE TOTAL EXPENSES
+// 3. FORMAT CURRENCY
+// ==========================================
+
+function formatCurrency(amount) {
+
+    return "KSh " + Number(amount).toLocaleString("en-KE", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+    });
+
+}
+
+
+// 4. CALCULATE TOTAL EXPENSES
 // ==========================================
 
 function calculateTotalExpenses() {
@@ -50,7 +65,7 @@ function calculateTotalExpenses() {
 }
 
 
-// 4. CALCULATE REMAINING BALANCE
+// 5. CALCULATE REMAINING BALANCE
 // ==========================================
 
 function calculateBalance() {
@@ -61,7 +76,7 @@ function calculateBalance() {
 }
 
 
-// 5. UPDATE THE DASHBOARD
+// 6. UPDATE THE DASHBOARD
 // ==========================================
 
 function updateDashboard() {
@@ -72,26 +87,30 @@ function updateDashboard() {
 
 
     // Update summary cards
-    budgetDisplay.textContent = "$" + budget;
 
-    expensesDisplay.textContent = "$" + totalExpenses;
+    budgetDisplay.textContent = formatCurrency(budget);
 
-    balanceDisplay.textContent = "$" + remainingBalance;
+    expensesDisplay.textContent = formatCurrency(totalExpenses);
+
+    balanceDisplay.textContent = formatCurrency(remainingBalance);
 
 
     // Decision making
+
     if (remainingBalance < 0) {
 
         budgetMessage.textContent =
             "⚠️ You have exceeded your budget!";
 
     }
+
     else if (remainingBalance === 0) {
 
         budgetMessage.textContent =
             "Your budget has been fully used.";
 
     }
+
     else {
 
         budgetMessage.textContent =
@@ -101,12 +120,13 @@ function updateDashboard() {
 
 
     // Display expenses
+
     displayExpenses();
 
 }
 
 
-// 6. DISPLAY EXPENSES
+// 7. DISPLAY EXPENSES
 // ==========================================
 
 function displayExpenses() {
@@ -115,10 +135,11 @@ function displayExpenses() {
 
 
     // Check whether there are expenses
+
     if (expenses.length === 0) {
 
         expenseList.innerHTML =
-            "<p>No expenses added yet.</p>";
+            "<p id='emptyMessage'>No expenses added yet.</p>";
 
         return;
 
@@ -126,6 +147,7 @@ function displayExpenses() {
 
 
     // Loop through the expense array
+
     for (let i = 0; i < expenses.length; i++) {
 
         const expense = expenses[i];
@@ -138,7 +160,7 @@ function displayExpenses() {
 
         expenseItem.innerHTML = `
             <span>${expense.name}</span>
-            <strong>$${expense.amount}</strong>
+            <strong>${formatCurrency(expense.amount)}</strong>
         `;
 
 
@@ -149,23 +171,38 @@ function displayExpenses() {
 }
 
 
-// 7. HANDLE FORM SUBMISSION
+// 8. HANDLE FORM SUBMISSION
 // ==========================================
 
 expenseForm.addEventListener("submit", function(event) {
 
     // Prevent the page from refreshing
+
     event.preventDefault();
 
 
     // Get values from the form
-    const expenseName = expenseNameInput.value;
+
+    const expenseName = expenseNameInput.value.trim();
 
     const expenseAmount = Number(expenseAmountInput.value);
 
 
+    // Check that the name is not empty
+
+    if (expenseName === "") {
+
+        budgetMessage.textContent =
+            "Please enter an expense name.";
+
+        return;
+
+    }
+
+
     // Check that the amount is valid
-    if (expenseAmount <= 0) {
+
+    if (!Number.isFinite(expenseAmount) || expenseAmount <= 0) {
 
         budgetMessage.textContent =
             "Please enter an amount greater than 0.";
@@ -176,6 +213,7 @@ expenseForm.addEventListener("submit", function(event) {
 
 
     // Add the new expense to the array
+
     expenses.push({
 
         name: expenseName,
@@ -186,16 +224,18 @@ expenseForm.addEventListener("submit", function(event) {
 
 
     // Update the dashboard
+
     updateDashboard();
 
 
     // Clear the form
+
     expenseForm.reset();
 
 });
 
 
-// 8. INITIAL DASHBOARD
+// 9. INITIAL DASHBOARD
 // ==========================================
 
 updateDashboard();

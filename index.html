@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +25,7 @@
 
     <div class="dashboard">
 
-        <!-- Sidebar -->
+        <!-- SIDEBAR -->
         <aside class="sidebar">
 
             <div class="sidebar-brand">
@@ -31,21 +33,21 @@
                 <p>Money made simple</p>
             </div>
 
+            <!-- Navigation -->
             <nav class="navigation">
-                <a href="#" class="nav-item active">Dashboard</a>
-                <a href="#" class="nav-item">Expenses</a>
-                <a href="#" class="nav-item">Categories</a>
-                <a href="#" class="nav-item">Reports</a>
-                <a href="#" class="nav-item">Settings</a>
+                <a href="#dashboard" class="nav-item active">Dashboard</a>
+                <a href="#expenses" class="nav-item">Expenses</a>
+                <a href="#categories" class="nav-item">Categories</a>
+                <a href="#reports" class="nav-item">Reports</a>
+                <a href="#settings" class="nav-item">Settings</a>
             </nav>
 
         </aside>
 
+        <!-- MAIN CONTENT -->
+        <main class="main-content" id="dashboard">
 
-        <!-- Main Content -->
-        <main class="main-content">
-
-            <!-- Header -->
+            <!-- DASHBOARD HEADER -->
             <header class="dashboard-header">
 
                 <div>
@@ -54,19 +56,18 @@
                 </div>
 
                 <div class="user-info">
-                    <span>September 2026</span>
+                    <span>November 2026</span>
                     <span class="user-name">Welcome back!</span>
                 </div>
 
             </header>
 
-
-            <!-- Budget Summary -->
+            <!-- BUDGET SUMMARY -->
             <section class="budget-summary">
 
                 <div class="summary-card">
                     <p>Monthly Budget</p>
-                    <strong id="budgetDisplay">$0</strong>
+                    <strong id="budgetDisplay">$50000</strong>
                 </div>
 
                 <div class="summary-card">
@@ -76,14 +77,13 @@
 
                 <div class="summary-card">
                     <p>Remaining Balance</p>
-                    <strong id="balanceDisplay">$0</strong>
+                    <strong id="balanceDisplay">$50000</strong>
                 </div>
 
             </section>
 
-
-            <!-- Add Expense -->
-            <section class="expense-section">
+            <!-- ADD EXPENSE -->
+            <section class="expense-section" id="add-expense">
 
                 <div class="section-heading">
 
@@ -98,14 +98,11 @@
 
                 </div>
 
-
                 <form id="expenseForm" class="expense-form">
 
                     <div class="form-group">
 
-                        <label for="expenseName">
-                            Expense Name
-                        </label>
+                        <label for="expenseName">Expense Name</label>
 
                         <input
                             type="text"
@@ -116,12 +113,9 @@
 
                     </div>
 
-
                     <div class="form-group">
 
-                        <label for="expenseAmount">
-                            Amount
-                        </label>
+                        <label for="expenseAmount">Amount</label>
 
                         <input
                             type="number"
@@ -133,24 +127,21 @@
 
                     </div>
 
-
                     <button type="submit" id="addExpenseButton">
                         Add Expense
                     </button>
 
                 </form>
 
-
-                <!-- Budget Message -->
+                <!-- BUDGET MESSAGE -->
                 <p id="budgetMessage" class="budget-message">
                     Add an expense to see your budget status.
                 </p>
 
             </section>
 
-
-            <!-- Expense List -->
-            <section class="expense-list-section">
+            <!-- RECENT EXPENSES -->
+            <section class="expense-list-section" id="expenses">
 
                 <div class="section-heading">
 
@@ -160,7 +151,6 @@
                     </div>
 
                 </div>
-
 
                 <div id="expenseList" class="expense-list">
 
@@ -172,9 +162,8 @@
 
             </section>
 
-
-            <!-- Category Cards -->
-            <section class="category-section">
+            <!-- EXPENSE CATEGORIES -->
+            <section class="category-section" id="categories">
 
                 <div class="section-heading">
 
@@ -189,10 +178,9 @@
 
                 </div>
 
-
                 <div class="category-grid">
 
-                    <!-- Food -->
+                    <!-- FOOD -->
                     <article class="category-card" tabindex="0">
 
                         <div class="card-top">
@@ -212,8 +200,7 @@
 
                     </article>
 
-
-                    <!-- Transport -->
+                    <!-- TRANSPORT -->
                     <article class="category-card" tabindex="0">
 
                         <div class="card-top">
@@ -233,8 +220,7 @@
 
                     </article>
 
-
-                    <!-- Rent -->
+                    <!-- RENT -->
                     <article class="category-card" tabindex="0">
 
                         <div class="card-top">
@@ -254,8 +240,7 @@
 
                     </article>
 
-
-                    <!-- Entertainment -->
+                    <!-- ENTERTAINMENT -->
                     <article class="category-card" tabindex="0">
 
                         <div class="card-top">
@@ -275,8 +260,7 @@
 
                     </article>
 
-
-                    <!-- Savings -->
+                    <!-- SAVINGS -->
                     <article class="category-card" tabindex="0">
 
                         <div class="card-top">
@@ -296,8 +280,7 @@
 
                     </article>
 
-
-                    <!-- Utilities -->
+                    <!-- UTILITIES -->
                     <article class="category-card" tabindex="0">
 
                         <div class="card-top">
@@ -321,12 +304,60 @@
 
             </section>
 
+            <!-- REPORTS SECTION -->
+            <section class="expense-list-section extra-section" id="reports">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">Financial Insights</p>
+                        <h2>Reports</h2>
+                    </div>
+                </div>
+
+                <div class="placeholder-content">
+                    <span class="placeholder-icon">📊</span>
+                    <h3>Your Financial Reports</h3>
+                    <p>
+                        Your monthly spending reports and financial insights
+                        will appear here.
+                    </p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+
+            </section>
+
+            <!-- SETTINGS SECTION -->
+            <section class="expense-list-section extra-section" id="settings">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">Personal Preferences</p>
+                        <h2>Settings</h2>
+                    </div>
+                </div>
+
+                <div class="placeholder-content">
+                    <span class="placeholder-icon">⚙️</span>
+                    <h3>Account Settings</h3>
+                    <p>
+                        Manage your account, currency, monthly budget
+                        and application preferences here.
+                    </p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="dashboard-footer">
+                <p>© 2026 SpendWise. Money made simple.</p>
+            </footer>
+
         </main>
 
     </div>
 
-
-    <!-- JavaScript -->
+    <!-- EXISTING JAVASCRIPT -->
     <script src="script.js"></script>
 
 </body>
